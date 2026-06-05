@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family:Arial;text-align:center;padding:50px;">
+
+<h1 id="welcome">Welcome Student</h1>
+
+<script>
+
+const students = {
+  "1":"John",
+  "2":"David",
+  "3":"Samuel"
+};
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+if(students[id]){
+    document.getElementById("welcome").innerHTML =
+    "Welcome " + students[id] + "!";
+}
+
+</script>
+
+</body>
+</html>
