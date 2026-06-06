@@ -281,48 +281,49 @@ Destination: PURPOSE
 
 <script>
 
-const students = {
-
-"1":{
-name:"John Samuel",
-department:"Theology",
-hostel:"Joshua House"
-},
-
-"2":{
-name:"David Paul",
-department:"Missions",
-hostel:"Caleb House"
-},
-
-"3":{
-name:"Samuel Raj",
-department:"Pastoral Studies",
-hostel:"Faith House"
-}
-
-};
+async function loadStudent() {
 
 const params = new URLSearchParams(window.location.search);
 
 const id = params.get("id");
+
+const response = await fetch("students.json");
+
+const students = await response.json();
 
 if(students[id]){
 
 document.getElementById("studentName").innerText =
 students[id].name;
 
-document.getElementById("department").innerText =
-students[id].department;
+document.getElementById("registerNo").innerText =
+students[id].reg;
 
-document.getElementById("hostel").innerText =
-students[id].hostel;
+document.getElementById("verse").innerText =
+students[id].verse;
 
-document.getElementById("studentId").innerText =
-id;
+document.getElementById("reference").innerText =
+students[id].reference;
+
+}else{
+
+document.getElementById("studentName").innerText =
+"Student Not Found";
+
+document.getElementById("registerNo").innerText =
+"";
+
+document.getElementById("verse").innerText =
+"";
+
+document.getElementById("reference").innerText =
+"";
 
 }
 
+}
+
+loadStudent();
 </script>
 
 </body>
