@@ -4,35 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Welcome Aboard</title>
+<title>Welcome to CGLD</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-#bg-video{
-    position:fixed;
-    right:0;
-    bottom:0;
-    min-width:100%;
-    min-height:100%;
-    object-fit:cover;
-    z-index:-2;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-}
-body::before{
-    content:'';
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.45);
-    z-index:-1;
-}
 body{
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#0f172a,#1e293b,#0ea5e9,#1d4ed8);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+    color:white;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -40,239 +40,230 @@ body{
     padding:20px;
 }
 
-.ticket{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(8px);
-
+.card{
     width:900px;
-    max-width:100%;
-
-    border-radius:25px;
-
-    display:flex;
-
-    overflow:hidden;
-
-    box-shadow:0 20px 50px rgba(0,0,0,0.4);
-
+    max-width:95%;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+    animation:fadeIn 1.5s ease;
 }
 
-
-
-.right{
-    flex:1;
-    background:#0ea5e9;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    position:relative;
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.airline{
-    color:#0ea5e9;
-    font-size:14px;
+.logo{
+    font-size:22px;
+    letter-spacing:5px;
     font-weight:700;
-    letter-spacing:2px;
+    margin-bottom:10px;
 }
 
-.title{
-    font-size:42px;
-    font-weight:700;
+.welcome{
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.student-name{
+    font-size:48px;
+    font-weight:800;
+    color:#fde68a;
     margin-top:10px;
-    color:#0f172a;
 }
 
 .subtitle{
-    color:#64748b;
-    margin-bottom:30px;
-}
-
-.student-name{
-    font-size:36px;
-    font-weight:700;
-    color:#0f172a;
-    margin-bottom:20px;
-}
-
-.info-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
     margin-top:20px;
-}
-
-.info{
-    background:#f8fafc;
-    padding:15px;
-    border-radius:12px;
-}
-
-.label{
-    font-size:12px;
-    color:#64748b;
-    text-transform:uppercase;
-}
-
-.value{
-    font-size:18px;
-    font-weight:600;
-    color:#0f172a;
-}
-
-.status{
-    margin-top:30px;
-    padding:15px;
-    background:#dcfce7;
-    color:#166534;
-    border-radius:10px;
-    font-weight:600;
-}
-
-.boarding{
     font-size:24px;
-    font-weight:700;
-    margin-bottom:20px;
+    font-weight:300;
 }
 
-.flight{
-    font-size:60px;
-    font-weight:700;
+.info-box{
+    margin-top:35px;
+    display:inline-block;
+    background:rgba(255,255,255,0.15);
+    padding:15px 30px;
+    border-radius:15px;
 }
 
-.gate{
-    margin-top:15px;
+.regno{
+    font-size:22px;
+    font-weight:600;
+}
+
+.verse-box{
+    margin-top:40px;
+    background:rgba(255,255,255,.15);
+    padding:30px;
+    border-radius:20px;
+}
+
+.verse-title{
     font-size:18px;
-}
-
-.qr-placeholder{
-    width:120px;
-    height:120px;
-    background:white;
-    margin-top:25px;
-    border-radius:10px;
+    letter-spacing:2px;
+    margin-bottom:15px;
 }
 
 .verse{
-    margin-top:30px;
-    padding:15px;
-    background:#f8fafc;
-    border-left:5px solid #0ea5e9;
-    border-radius:8px;
+    font-size:24px;
+    line-height:1.7;
     font-style:italic;
-    color:#334155;
 }
 
-@media(max-width:700px){
-
-.ticket{
-    flex-direction:column;
+.reference{
+    margin-top:15px;
+    font-weight:700;
+    color:#fde68a;
 }
 
-.right{
-    padding:30px;
+.fun-section{
+    margin-top:40px;
 }
 
-.title{
-    font-size:30px;
+.fun-title{
+    font-size:22px;
+    margin-bottom:20px;
 }
 
-.student-name{
-    font-size:28px;
+.badges{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
+.badge{
+    background:white;
+    color:#0f172a;
+    padding:12px 18px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.badge:hover{
+    transform:scale(1.1);
+}
+
+.footer{
+    margin-top:40px;
+    font-size:18px;
+}
+
+.sparkle{
+    position:fixed;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:sparkle 8s linear infinite;
+}
+
+@keyframes sparkle{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
 }
 
 </style>
 </head>
+
 <body>
 
-<video autoplay muted loop playsinline id="bg-video">
-    <source src="campus-video.mp4" type="video/mp4">
-</video>
+<div class="container">
 
-<div class="ticket">
+<div class="card">
 
-<div class="airline">
-CGLD AIRWAYS
+<div class="logo">
+CGLD
 </div>
 
-<h1 class="title">
-WELCOME ABOARD
+<h1 class="welcome">
+Welcome
 </h1>
 
-<p class="subtitle">
-Your journey into college life begins here.
-</p>
-
 <div class="student-name" id="studentName">
-Student Name
+Loading...
 </div>
 
-<div class="info-grid">
-
-<div class="info">
-<div class="label">Department</div>
-<div class="value" id="department">
-Theology
-</div>
+<div class="subtitle">
+We're so glad you are here.
+<br>
+Your journey of learning, growth and ministry begins today.
 </div>
 
-<div class="info">
-<div class="label">Hostel</div>
-<div class="value" id="hostel">
-Joshua House
+<div class="info-box">
+<div class="regno" id="registerNo">
+Loading...
 </div>
 </div>
 
-<div class="info">
-<div class="label">Student ID</div>
-<div class="value" id="studentId">
-2026001
-</div>
+<div class="verse-box">
+
+<div class="verse-title">
+YOUR SCRIPTURE FOR THIS JOURNEY
 </div>
 
-<div class="info">
-<div class="label">Arrival Date</div>
-<div class="value">
-15 JULY 2026
+<div class="verse" id="verse">
+Loading...
 </div>
+
+<div class="reference" id="reference">
+Loading...
 </div>
 
 </div>
 
-<div class="status">
-✓ BOARDING APPROVED
+<div class="fun-section">
+
+<div class="fun-title">
+Your Mission Starts Here
 </div>
 
-<div class="verse">
-"For I know the plans I have for you,
-declares the Lord..."<br>
-<b>Jeremiah 29:11</b>
+<div class="badges">
+<div class="badge">📖 Learn Deeply</div>
+<div class="badge">🙏 Pray Faithfully</div>
+<div class="badge">❤️ Love Generously</div>
+<div class="badge">🌍 Reach Nations</div>
+<div class="badge">🤝 Build Friendships</div>
+<div class="badge">🎓 Graduate Strong</div>
 </div>
 
 </div>
 
-<div class="right">
-
-<div class="boarding">
-BOARDING PASS
-</div>
-
-<div class="flight">
-2026
-</div>
-
-<div class="gate">
-Gate: ORIENTATION
-</div>
-
-<div class="gate">
-Destination: PURPOSE
-</div>
-
-<div class="qr-placeholder">
+<div class="footer">
+✨ Welcome aboard Flight CGLD-2026 ✨
+<br><br>
+Destination:
+<b>God's Purpose for Your Life</b>
 </div>
 
 </div>
@@ -281,49 +272,68 @@ Destination: PURPOSE
 
 <script>
 
-async function loadStudent() {
-
-const params = new URLSearchParams(window.location.search);
-
-const id = params.get("id");
-
-const response = await fetch("students.json");
-
-const students = await response.json();
-
-if(students[id]){
-
-document.getElementById("studentName").innerText =
-students[id].name;
-
-document.getElementById("registerNo").innerText =
-students[id].reg;
-
-document.getElementById("verse").innerText =
-students[id].verse;
-
-document.getElementById("reference").innerText =
-students[id].reference;
-
-}else{
-
-document.getElementById("studentName").innerText =
-"Student Not Found";
-
-document.getElementById("registerNo").innerText =
-"";
-
-document.getElementById("verse").innerText =
-"";
-
-document.getElementById("reference").innerText =
-"";
-
+// Floating sparkles
+for(let i=0;i<40;i++){
+    let star=document.createElement('div');
+    star.className='sparkle';
+    star.style.left=Math.random()*100+'vw';
+    star.style.animationDelay=Math.random()*8+'s';
+    star.style.animationDuration=(5+Math.random()*5)+'s';
+    document.body.appendChild(star);
 }
+
+// Load student data from JSON
+async function loadStudent(){
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    try{
+
+        const response = await fetch("students.json");
+        const students = await response.json();
+
+        if(students[id]){
+
+            document.getElementById("studentName").innerText =
+            students[id].name;
+
+            document.getElementById("registerNo").innerText =
+            "Registration No: " + students[id].reg;
+
+            document.getElementById("verse").innerText =
+            students[id].verse;
+
+            document.getElementById("reference").innerText =
+            students[id].reference;
+
+        }else{
+
+            document.getElementById("studentName").innerText =
+            "Student Not Found";
+
+            document.getElementById("registerNo").innerText =
+            "Invalid ID";
+
+            document.getElementById("verse").innerText =
+            "";
+
+            document.getElementById("reference").innerText =
+            "";
+
+        }
+
+    }catch(error){
+
+        document.getElementById("studentName").innerText =
+        "Unable to load student data";
+
+    }
 
 }
 
 loadStudent();
+
 </script>
 
 </body>
